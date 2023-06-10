@@ -1,0 +1,8 @@
+services:
+  gateway:
+    image: orkuztech/gateway:latest
+    ports:
+      - "8090:9999"
+    expose:
+      - "8090"
+    container_name: gateway
