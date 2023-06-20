@@ -2,6 +2,7 @@ pipeline {
     agent any
     
     stages {
+
         stage('Run docker compose') {
             steps {
                 echo 'Starting docker containers...'
@@ -15,7 +16,7 @@ pipeline {
                         remote.allowAnyHosts = true
                         stage('Remote SSH') {
                             sshPut remote: remote, from: 'compose.yaml', into: '.'
-                            sshCommand remote: remote, command: "mkdir -p /.ssh", sudo: true
+                            sshCommand remote: remote, command: "mkdir -p ~/.ssh", sudo: true
                             sshPut remote: remote, from: 'image_tags.env', into: '~/.ssh/environment'
                             sshCommand remote: remote, command: "docker-compose up -d"
                         }
