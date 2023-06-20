@@ -6,3 +6,4 @@ services:
     expose:
       - "8090"
     container_name: gateway
+    network_mode: "host"
