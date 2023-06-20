@@ -11,3 +11,4 @@ services:
 networks:
   localnetwork:
     name: local-network
+    external: true
