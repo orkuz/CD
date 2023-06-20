@@ -18,7 +18,7 @@ pipeline {
                             sshPut remote: remote, from: 'image_tags.sh', into: '.'
                             sshCommand remote: remote, command: "chmod +x image_tags.sh"
                             sshCommand remote: remote, command: "./image_tags.sh"
-                            sshCommand remote: remote, command: "docker compose up -d"
+                            sshCommand remote: remote, command: "docker-compose up -d"
                         }
                     }
                 }
