@@ -16,8 +16,7 @@ pipeline {
                         stage('Remote SSH') {
                             sshPut remote: remote, from: 'compose.yaml', into: '.'
                             sshPut remote: remote, from: 'image_tags.sh', into: '.'
-                            sshCommand remote: remote, command: "chmod +x image_tags.sh"
-                            sshCommand remote: remote, command: "./image_tags.sh"
+                            sshCommand remote: remote, command: "source image_tags.sh"
                             sshCommand remote: remote, command: "docker-compose up -d"
                         }
                     }
