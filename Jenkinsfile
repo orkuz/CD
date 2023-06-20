@@ -15,7 +15,8 @@ pipeline {
                         remote.allowAnyHosts = true
                         stage('Remote SSH') {
                             sshPut remote: remote, from: 'compose.yaml', into: '.'
-                            sshPut remote: remote, from: 'image_tags.env', into: '~/.ssh/environment'
+                            writeFile(file: environment, encoding: "UTF-8", text: readFile(file: "image_tags.env", encoding: "UTF-8"))
+                            sshPut remote: remote, from: 'environment', into: '~/.ssh/'
                             sshCommand remote: remote, command: "docker-compose up -d"
                         }
                     }
