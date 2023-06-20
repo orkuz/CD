@@ -1,6 +1,6 @@
 services:
   gateway:
-    image: orkuztech/gateway:$ORKUZTECH_GATEWAY_IMAGE_TAG
+    image: $ORKUZTECH_GATEWAY
     ports:
       - "8090:9999"
     expose:
