@@ -6,9 +6,8 @@ services:
     expose:
       - "8090"
     container_name: gateway
-    networks: 
-      - ext
+    networks:
+      - localnetwork
 networks:
-  ext:
-    external: true
-    name: host
+  localnetwork:
+    name: local-network
