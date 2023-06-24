@@ -8,6 +8,11 @@ services:
     container_name: gateway
     networks:
       - localnetwork
+  hello-web-api:
+    image: $ORKUZTECH_HELLO_WEB_API
+    container_name: hello_web_api
+    networks:
+      - localnetwork
 networks:
   localnetwork:
     name: local-network
