@@ -1,6 +1,7 @@
 services:
+
   gateway:
-    image: $ORKUZTECH_GATEWAY
+    image: orkuztech/gateway:dev1
     ports:
       - "8090:9999"
     expose:
@@ -8,12 +9,19 @@ services:
     container_name: gateway
     networks:
       - localnetwork
+
   hello-web-api:
-    image: $ORKUZTECH_HELLO_WEB_API
+    image: orkuztech/hello-web-api
     container_name: hello_web_api
     networks:
       - localnetwork
+      
+  hello-flask:
+    image: orkuztech/hello-flask
+    container_name: hello_flask
+    networks:
+      - localnetwork
+      
 networks:
   localnetwork:
     name: local-network
-    external: true
