@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    
     stages {
-
         stage('Run docker compose') {
             steps {
                 echo 'Starting docker containers...'
